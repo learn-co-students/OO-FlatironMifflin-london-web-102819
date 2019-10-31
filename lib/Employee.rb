@@ -1,11 +1,12 @@
-class Employees
+class Employee
 
-    attr_accessor :name, :salary, :department, :manager
+    attr_accessor :name, :salary, :manager
     @@all = []
 
-    def initialize(name, salary)
+    def initialize(name, salary, manager)
         @name = name
         @salary = salary
+        @manager = manager
         @@all << self
     end
 
@@ -26,7 +27,7 @@ class Employees
     end
 
     def self.find_by_department(department_name)
-        @@all.find{|employee| employee.department == department_name}
+        @@all.find{|employee| employee.manager.department == department_name}
     end
 
 end

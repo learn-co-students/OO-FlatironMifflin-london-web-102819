@@ -1,6 +1,6 @@
 class Manager
 
-    attr_accessor :name, :age
+    attr_accessor :name, :age, :department
     @@all = []
 
     def initialize(name, department, age)
@@ -27,12 +27,7 @@ class Manager
     end
 
     def hire_employee(employee_name, salary)
-        Employee.all.each do |employee|
-            if employee.name == employee_name && employee.salary == salary
-                employee.manager = self
-                return employee
-            end
-        end
+        Employee.new(employee_name, salary, self)
     end
 
 end
