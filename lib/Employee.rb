@@ -23,6 +23,9 @@ class Employee
         @@all.find{|employee| employee.department == deparment_name}
     end 
 
-
+    def tax_bracket
+        Employee.all.select do |employee|
+            (self.salary - employee.salary).abs == 1000
+    end 
 
 end
