@@ -23,12 +23,12 @@ class Manager
     end 
 
     def self.all_departments
-
+        Manager.all.map {|manager| manager.age}
     end 
 
     def self.average_age
-
-    end
+        all_ages.sum / all_ages.size.to_f
+      end
 
 end
 
