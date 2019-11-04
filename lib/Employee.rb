@@ -16,20 +16,20 @@ class Employee
   end
 
   def self.paid_over(amount)
-     Employee.all.select {|e| e.salary > amount}
+     self.all.select {|e| e.salary > amount}
   end
 
   #takes a String argument that is the name of a department and 
   #returns the first employee whose manager is working in that department
   def self.find_by_department(department_name)
-    Employee.all.find {|e| e.manager.department == department_name}
+    self.all.find {|e| e.manager.department == department_name}
   end
 
 
   #returns an Array of all the employees whose 
   #salaries are within $1000 (± 1000) of the employee who invoked the method
   def tax_bracket
-    Employee.all.select do |e| 
+    self.all.select do |e| 
       (self.salary - e.salary).abs == 1000
     end
   end
