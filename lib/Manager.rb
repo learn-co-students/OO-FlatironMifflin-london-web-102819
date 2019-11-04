@@ -15,15 +15,15 @@ class Manager
   end
 
   def hire_employee(employee_name, salary)
-    Employee.new(employee_name, self, salary)
+    self.new(employee_name, self, salary)
   end
 
   def self.all_departments
-    Manager.all.map {|m| m.department} 
+    self.all.map {|m| m.department} 
   end
 
   def self.all_ages
-    Manager.all.map {|m| m.age}
+    self.all.map {|m| m.age}
   end
 
   def self.average_age
